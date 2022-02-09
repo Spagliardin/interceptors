@@ -1,3 +1,4 @@
+import { UsersService } from './services/users.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'interceptorApp';
+  constructor( private usersService: UsersService ){
+
+    this.usersService.getUser()
+    .subscribe( res => {
+      console.log(res);
+    } )
+
+  }
+
+
 }
